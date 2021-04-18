@@ -11,6 +11,17 @@ const pngquant = require('imagemin-pngquant');
  */
 const files = './src/img/**/*.{jpg,jpeg,png,gif,svg}';
 const dist = './dist/img';
+const options = [
+  pngquant({
+    quality: [ 0.65, 0.8 ],
+    speed: 1
+  }),
+  mozjpeg({
+    quality: 80
+  }),
+  imagemin.svgo(),
+  imagemin.gifsicle(),
+];
 
 /**
  * functions
@@ -18,14 +29,7 @@ const dist = './dist/img';
 function IMAGE_MIN() {
   return gulp
     .src(files)
-    .pipe(
-      imagemin([
-        pngquant({ quality: [ 0.65, 0.8 ], speed: 1 }),
-        mozjpeg({ quality: 80 }),
-        imagemin.svgo(),
-        imagemin.gifsicle(),
-      ])
-    )
+    .pipe(imagemin(options))
     .pipe(gulp.dest(dist));
 }
 
