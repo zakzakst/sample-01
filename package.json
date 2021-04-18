@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=production gulp ejsBuild",
-    "test2": "gulp ejsBuild"
+    "test": "gulp imageMin",
+    "ejsBuild:dev": "cross-env NODE_ENV=development gulp ejsBuild",
+    "ejsBuild:prd": "cross-env NODE_ENV=production gulp ejsBuild",
+    "imageMin": "gulp imageMin"
   },
   "repository": {
     "type": "git",
