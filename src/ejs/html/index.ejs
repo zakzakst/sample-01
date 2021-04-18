@@ -1,0 +1,29 @@
+<!-- @@master = ../_layout/default.ejs -->
+
+<!-- @@block = data -->
+<%
+  const PAGE_DATA = {
+    name: 'ページ1',
+    breadcrumbs: [
+      {
+        path: '',
+        label: 'HOME',
+      },
+      {
+        path: 'path1/',
+        label: 'path1',
+      },
+      {
+        path: 'path1/path2/',
+        label: 'path2',
+      }
+    ]
+  };
+-%>
+<!-- @@close -->
+
+<!-- @@block = content -->
+<main>
+  <p>my content</p>
+</main>
+<!-- @@close -->

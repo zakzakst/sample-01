@@ -1,0 +1,11 @@
+{
+  "cSpell.enabledLanguageIds": [
+    "gsap",
+    "stylelint",
+  ],
+  // 設定：eslint
+  "javascript.validate.enable": false,
+  "[js]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+}
