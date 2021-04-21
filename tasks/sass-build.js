@@ -3,8 +3,8 @@
  */
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
-const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob');
 const packageImporter = require('node-sass-package-importer');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -15,6 +15,8 @@ const stylelint = require('stylelint');
  */
 const files = './src/sass/style.scss';
 const dist = './dist/css';
+const environment = process.env.NODE_ENV || 'development';
+const outputStyle = environment === 'production' ? 'compressed' : 'expanded';
 const lintFiles = [
   './src/sass/**/*.{css,scss}',
   '!./src/sass/**/_*.{css,scss}',
@@ -24,7 +26,7 @@ const lintFiles = [
 /**
  * functions
  */
-function BUILD() {
+function SASS_BUILD() {
   return gulp.src(files)
     .pipe(plumber())
     .pipe(sassGlob())
@@ -32,15 +34,15 @@ function BUILD() {
       importer: packageImporter({
         extensions: ['.scss', '.css'],
       }),
-      outputStyle: 'expanded', // compressed, expanded
+      outputStyle: outputStyle
     }))
     .pipe(postcss([
-      autoprefixer(),
+      autoprefixer()
     ]))
     .pipe(gulp.dest(dist));
 }
 
-function LINT() {
+function SASS_LINT() {
   return gulp.src(lintFiles)
     .pipe(plumber())
     .pipe(sass({
@@ -53,4 +55,4 @@ function LINT() {
     ]));
 }
 
-module.exports = { BUILD, LINT };
+module.exports = { SASS_BUILD, SASS_LINT };

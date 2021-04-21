@@ -13,7 +13,9 @@
 
 ## stylelint関連のモジュール
 - stylelint
-- stylelint-config-standard
+- stylelint-scss
+- stylelint-config-recommended
+- stylelint-config-prettier
 - stylelint-config-recess-order
 
 ## webpack関連のモジュール
@@ -23,3 +25,11 @@
 
 ## 環境変数関連のモジュール
 - cross-env
+
+## SASS関連のモジュール
+- gulp-sass
+- gulp-sass-glob
+- node-sass-package-importer
+- postcss
+- gulp-postcss
+- autoprefixer
