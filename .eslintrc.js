@@ -4,14 +4,10 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    // 'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   rules: {
-    indent: ['error', 2],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
+    'linebreak-style': ['error', 'windows'],
   },
   globals: {
     window: true,
@@ -19,6 +15,6 @@ module.exports = {
     gsap: true,
   },
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
   },
 };

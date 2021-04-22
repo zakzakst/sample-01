@@ -16,16 +16,13 @@ const rename = require('gulp-rename');
 /**
  * values
  */
-const files = [
-  './src/ejs/html/**/*.ejs',
-  '!./src/ejs/html/**/_*.ejs',
-];
+const files = ['./src/ejs/html/**/*.ejs', '!./src/ejs/html/**/_*.ejs'];
 const dist = './dist';
 const environment = process.env.NODE_ENV || 'development';
 const environmentData = require(`../env.${environment}.js`);
 const htmlminOptions = {
-  collapseWhitespace : true,
-  removeComments : true,
+  collapseWhitespace: true,
+  removeComments: true,
 };
 
 /**
@@ -42,10 +39,7 @@ function EJS_BUILD() {
     .pipe(htmlbeautify())
     .pipe(minifyInline())
     .pipe(minifyInlineJSON())
-    .pipe(gulpIf(
-      environment === 'production',
-      htmlmin(htmlminOptions)
-    ))
+    .pipe(gulpIf(environment === 'production', htmlmin(htmlminOptions)))
     .pipe(rename({ extname: '.html' }))
     .pipe(gulp.dest(dist));
 }

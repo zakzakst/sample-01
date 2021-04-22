@@ -1,3 +1,4 @@
 'use strict';
 
-console.log("aaa");
+import { sample } from './_module/sample';
+sample();
