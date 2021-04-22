@@ -6,9 +6,7 @@ module.exports = {
     script: './src/js/script.js',
   },
   resolve: {
-    extensions: [
-      '.js',
-    ],
+    extensions: ['.js'],
   },
   output: {
     path: `${__dirname}/dist/js`,
@@ -30,7 +28,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
       },
-    ]
+    ],
   },
   optimization: {
     minimize: true,
@@ -39,6 +37,7 @@ module.exports = {
         test: /\.js$/,
         terserOptions: {
           compress: {
+            // drop_console: environment === 'production' ? true : false,
             drop_console: true,
           },
         },

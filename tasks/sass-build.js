@@ -27,32 +27,34 @@ const lintFiles = [
  * functions
  */
 function SASS_BUILD() {
-  return gulp.src(files)
+  return gulp
+    .src(files)
     .pipe(plumber())
     .pipe(sassGlob())
-    .pipe(sass({
-      importer: packageImporter({
-        extensions: ['.scss', '.css'],
-      }),
-      outputStyle: outputStyle
-    }))
-    .pipe(postcss([
-      autoprefixer()
-    ]))
+    .pipe(
+      sass({
+        importer: packageImporter({
+          extensions: ['.scss', '.css'],
+        }),
+        outputStyle: outputStyle,
+      })
+    )
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest(dist));
 }
 
 function SASS_LINT() {
-  return gulp.src(lintFiles)
+  return gulp
+    .src(lintFiles)
     .pipe(plumber())
-    .pipe(sass({
-      importer: packageImporter({
-        extensions: ['.scss', '.css'],
-      }),
-    }))
-    .pipe(postcss([
-      stylelint(),
-    ]));
+    .pipe(
+      sass({
+        importer: packageImporter({
+          extensions: ['.scss', '.css'],
+        }),
+      })
+    )
+    .pipe(postcss([stylelint()]));
 }
 
 module.exports = { SASS_BUILD, SASS_LINT };

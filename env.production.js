@@ -13,7 +13,8 @@ module.exports = {
 
     // ICON
     favicon: 'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/favicon.ico',
-    appleIcon: 'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/apple-touch-icon.png',
+    appleIcon:
+      'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/apple-touch-icon.png',
 
     // FACEBOOK
     ogImg: 'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/ogp.png',
@@ -27,6 +28,7 @@ module.exports = {
 
     // RICH RESULT
     ldAuthorType: 'Organization',
-    ldAuthorLogo: 'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/apple-touch-icon.png',
+    ldAuthorLogo:
+      'https://s-ishizaki.sakura.ne.jp/sample/01/img/common/apple-touch-icon.png',
   },
 };
